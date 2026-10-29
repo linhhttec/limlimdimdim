@@ -1,0 +1,13 @@
+[build]
+  publish = "."
+
+# Nội dung do CMS tạo ra: luôn kiểm tra bản mới nhất sau mỗi lần deploy
+[[headers]]
+  for = "/content/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
