@@ -1,0 +1,118 @@
+# ==========================================================================
+# Decap CMS · limdim.softie
+# Việc DUY NHẤT bạn cần sửa trước khi dùng: dòng "repo" bên dưới.
+# ==========================================================================
+backend:
+  name: github
+  repo: TEN-GITHUB-CUA-BAN/TEN-REPO   # ví dụ: limdim/limdim-softie
+  branch: main                        # đổi thành "master" nếu repo của bạn dùng nhánh master
+  # Đăng nhập qua Netlify OAuth (xem README.md, bước 4).
+
+# Khi chạy thử trên máy (http://localhost): chạy "npx decap-server" rồi mở /admin/
+local_backend: true
+
+publish_mode: simple          # bấm "Publish" là lưu thẳng lên GitHub, Netlify tự deploy lại
+media_folder: "images/uploads"   # ảnh tải lên được lưu ở đây
+public_folder: "/images/uploads"
+site_url: https://limdim-softie.netlify.app   # đổi thành địa chỉ web thật của bạn
+display_url: https://limdim-softie.netlify.app
+
+collections:
+  # ------------------------------------------------------------------ DANH MỤC
+  - name: categories
+    label: "Danh mục"
+    files:
+      - name: categories
+        label: "Danh mục sản phẩm"
+        file: "content/categories.json"
+        format: json
+        fields:
+          - label: "Danh mục"
+            name: categories
+            widget: list
+            label_singular: "danh mục"
+            summary: "{{fields.name_vi}} ({{fields.id}})"
+            hint: "Kéo thả để đổi thứ tự hiển thị trên website. Danh mục chỉ xóa được khi không còn sản phẩm nào thuộc về nó."
+            fields:
+              - label: "Mã danh mục"
+                name: id
+                widget: string
+                pattern: ['^[A-Za-z0-9_-]+$', "Chỉ dùng chữ không dấu, số, gạch ngang hoặc gạch dưới, không có khoảng trắng"]
+                hint: "Mã ngắn để nối sản phẩm với danh mục, ví dụ: C, T, B, S, nonlen. KHÔNG đổi sau khi đã có sản phẩm. Mã \"C\" là danh mục Túi cói: mục Product Catalog và Booklet bảo quản cói hiện ngay dưới danh mục này."
+              - { label: "Tên danh mục (tiếng Việt)", name: name_vi, widget: string }
+              - { label: "Tên danh mục (tiếng Anh)", name: name_en, widget: string, required: false, hint: "Để trống thì dùng tên tiếng Việt." }
+              - { label: "Nhãn nhỏ cạnh tiêu đề", name: label, widget: string, required: false, hint: "Ví dụ: Signature, Mains, Sweet pouch. Không bắt buộc." }
+
+  # ------------------------------------------------------------------ SẢN PHẨM
+  - name: products
+    label: "Sản phẩm"
+    files:
+      - name: products
+        label: "Danh sách sản phẩm"
+        file: "content/products.json"
+        format: json
+        fields:
+          - label: "Sản phẩm"
+            name: products
+            widget: list
+            label_singular: "sản phẩm"
+            summary: "{{fields.name}} · {{fields.category}}"
+            hint: "Kéo thả để đổi thứ tự hiển thị trong từng danh mục. Bấm \"Thêm sản phẩm\" ở cuối danh sách để tạo mới."
+            fields:
+              - { label: "Tên sản phẩm", name: name, widget: string }
+              - label: "Danh mục"
+                name: category
+                widget: relation
+                collection: categories
+                file: categories
+                value_field: "categories.*.id"
+                search_fields: ["categories.*.name_vi"]
+                display_fields: ["categories.*.name_vi"]
+              - label: "Ảnh chính"
+                name: image
+                widget: image
+                choose_url: false
+                hint: "Ảnh dọc tỉ lệ 4:5 là đẹp nhất. Nên dùng JPG dưới 500KB để web tải nhanh."
+              - label: "Ảnh phụ"
+                name: gallery
+                widget: list
+                required: false
+                label_singular: "ảnh"
+                hint: "Hiện thành các ảnh nhỏ khi khách bấm vào sản phẩm."
+                field: { label: "Ảnh", name: image, widget: image, choose_url: false }
+              - label: "Tag"
+                name: tag
+                widget: select
+                default: "none"
+                options:
+                  - { label: "Không có tag", value: "none" }
+                  - { label: "Best seller", value: "best" }
+                  - { label: "Hết hàng (Sold out)", value: "soldout" }
+              - label: "Giá chung (nghìn đồng)"
+                name: price
+                widget: number
+                value_type: int
+                min: 0
+                required: false
+                hint: "Nhập 350 nghĩa là 350.000đ. Để trống nếu muốn hiện \"Nhắn shop báo giá\". Nếu mỗi phân loại có giá riêng thì để trống ô này."
+              - label: "Loại phân loại"
+                name: variant_type
+                widget: select
+                default: "none"
+                options:
+                  - { label: "Không có phân loại", value: "none" }
+                  - { label: "Size", value: "size" }
+                  - { label: "Màu sắc", value: "color" }
+                  - { label: "Khác (tự đặt tên)", value: "custom" }
+              - { label: "Tên phân loại (chỉ khi chọn \"Khác\")", name: variant_label, widget: string, required: false, hint: "Ví dụ: Kiểu quai, Mẫu vải." }
+              - label: "Các lựa chọn phân loại"
+                name: variants
+                widget: list
+                required: false
+                label_singular: "lựa chọn"
+                summary: "{{fields.name}}"
+                hint: "Ví dụ Size: M (105), L (130). Giá riêng để trống thì lấy theo Giá chung. Ô Màu chỉ dùng khi loại phân loại là Màu sắc."
+                fields:
+                  - { label: "Tên lựa chọn", name: name, widget: string }
+                  - { label: "Giá riêng (nghìn đồng)", name: price, widget: number, value_type: int, min: 0, required: false }
+                  - { label: "Màu (chỉ cho phân loại Màu sắc)", name: color, widget: color, required: false }

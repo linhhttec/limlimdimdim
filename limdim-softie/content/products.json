@@ -1,0 +1,238 @@
+{
+  "products": [
+    {
+      "name": "Cói Mơ",
+      "category": "C",
+      "image": "/images/uploads/img-04.jpg",
+      "gallery": [],
+      "tag": "none",
+      "variant_type": "none",
+      "price": 350
+    },
+    {
+      "name": "Cói San",
+      "category": "C",
+      "image": "/images/uploads/img-06.jpg",
+      "gallery": [],
+      "tag": "none",
+      "variant_type": "none",
+      "price": 350
+    },
+    {
+      "name": "Cói Thảo",
+      "category": "C",
+      "image": "/images/uploads/img-08.jpg",
+      "gallery": [],
+      "tag": "best",
+      "variant_type": "none",
+      "price": 350
+    },
+    {
+      "name": "Bow Bag",
+      "category": "T",
+      "image": "/images/uploads/img-10.jpg",
+      "gallery": [],
+      "tag": "best",
+      "variant_type": "color",
+      "variants": [
+        {
+          "name": "Xanh",
+          "color": "#8fb8de"
+        },
+        {
+          "name": "Nâu",
+          "color": "#8a5a44"
+        },
+        {
+          "name": "Hồng đậm",
+          "color": "#d94f7d"
+        },
+        {
+          "name": "Hồng nhạt",
+          "color": "#f6c6d2"
+        }
+      ],
+      "price": 280
+    },
+    {
+      "name": "Tote Bag (white)",
+      "category": "T",
+      "image": "/images/uploads/img-11.jpg",
+      "gallery": [],
+      "tag": "none",
+      "variant_type": "none",
+      "price": 280
+    },
+    {
+      "name": "Tote Bag (dreamy pink)",
+      "category": "T",
+      "image": "/images/uploads/img-12.jpg",
+      "gallery": [],
+      "tag": "none",
+      "variant_type": "none",
+      "price": 280
+    },
+    {
+      "name": "Blueberry Pouch",
+      "category": "B",
+      "image": "/images/uploads/img-13.jpg",
+      "gallery": [],
+      "tag": "soldout",
+      "variant_type": "size",
+      "variants": [
+        {
+          "name": "M",
+          "price": 105
+        },
+        {
+          "name": "L",
+          "price": 130
+        }
+      ]
+    },
+    {
+      "name": "Rosy Ruffle",
+      "category": "B",
+      "image": "/images/uploads/img-14.jpg",
+      "gallery": [],
+      "tag": "none",
+      "variant_type": "size",
+      "variants": [
+        {
+          "name": "M",
+          "price": 105
+        },
+        {
+          "name": "L",
+          "price": 130
+        }
+      ]
+    },
+    {
+      "name": "Creamy Ruffle",
+      "category": "B",
+      "image": "/images/uploads/img-15.jpg",
+      "gallery": [],
+      "tag": "none",
+      "variant_type": "size",
+      "variants": [
+        {
+          "name": "M",
+          "price": 105
+        },
+        {
+          "name": "L",
+          "price": 130
+        }
+      ]
+    },
+    {
+      "name": "Grape Ruffle",
+      "category": "B",
+      "image": "/images/uploads/img-16.jpg",
+      "gallery": [],
+      "tag": "none",
+      "variant_type": "size",
+      "variants": [
+        {
+          "name": "M",
+          "price": 105
+        },
+        {
+          "name": "L",
+          "price": 130
+        }
+      ]
+    },
+    {
+      "name": "Flora Ruffle",
+      "category": "B",
+      "image": "/images/uploads/img-17.jpg",
+      "gallery": [],
+      "tag": "soldout",
+      "variant_type": "size",
+      "variants": [
+        {
+          "name": "M",
+          "price": 105
+        },
+        {
+          "name": "L",
+          "price": 130
+        }
+      ]
+    },
+    {
+      "name": "Strawberry Matcha",
+      "category": "B",
+      "image": "/images/uploads/img-18.jpg",
+      "gallery": [],
+      "tag": "none",
+      "variant_type": "size",
+      "variants": [
+        {
+          "name": "M",
+          "price": 105
+        },
+        {
+          "name": "L",
+          "price": 130
+        }
+      ]
+    },
+    {
+      "name": "Dreamy Rabbit (pink)",
+      "category": "S",
+      "image": "/images/uploads/img-19.jpg",
+      "gallery": [],
+      "tag": "soldout",
+      "variant_type": "size",
+      "variants": [
+        {
+          "name": "M",
+          "price": 120
+        },
+        {
+          "name": "L",
+          "price": 140
+        }
+      ]
+    },
+    {
+      "name": "Dreamy Rabbit (white)",
+      "category": "S",
+      "image": "/images/uploads/img-20.jpg",
+      "gallery": [],
+      "tag": "none",
+      "variant_type": "size",
+      "variants": [
+        {
+          "name": "M",
+          "price": 120
+        },
+        {
+          "name": "L",
+          "price": 140
+        }
+      ]
+    },
+    {
+      "name": "Rapunzel Pouch",
+      "category": "S",
+      "image": "/images/uploads/img-21.jpg",
+      "gallery": [],
+      "tag": "soldout",
+      "variant_type": "size",
+      "variants": [
+        {
+          "name": "M",
+          "price": 120
+        },
+        {
+          "name": "L",
+          "price": 140
+        }
+      ]
+    }
+  ]
+}
